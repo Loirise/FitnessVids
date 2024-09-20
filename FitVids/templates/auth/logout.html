@@ -1,0 +1,20 @@
+{% extends "master_template.html" %}
+
+{% block title %}
+    FitVids - Logout
+{% endblock title %}
+
+{% block content %}
+    <div class="greyborder d-flex flex-column mx-auto col-xl-6 px-1">
+        <div class="mt-1 text-center mark">
+            <h2><strong>Are you sure you want to log out</strong></h2>
+        </div>
+        <form method="POST">
+            {% csrf_token %}
+            <div class="d-flex">
+                <button type="submit" class="btn btn-success my-2 white_text_button mx-auto">Yes, log me out</button>
+            </div>
+        </form>
+        <a href="{% url 'frontpage' %}" class="btn btn-info white_text_button mb-1">No, go back</a>
+    </div>
+{% endblock content %}

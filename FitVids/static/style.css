@@ -1,0 +1,26 @@
+.greyborder {
+    border: solid grey 1px;
+}
+
+.browntext {
+    color: brown;
+    text-decoration: none;
+}
+
+.browntext:hover {
+    text-decoration: underline;
+    text-underline-offset: 4px;
+    text-decoration-color: brown;
+}
+
+.white_text_button {
+    color: white;
+    text-decoration: none;
+}
+
+.white_text_button:hover {
+    color: white !important;
+    text-decoration: underline;
+    text-underline-offset: 4px;
+    text-decoration-color: aliceblue;
+}

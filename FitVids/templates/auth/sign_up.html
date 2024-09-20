@@ -1,0 +1,39 @@
+{% extends "master_template.html" %}
+
+{% block title %}
+    FitVids - Sign up
+{% endblock title %}
+
+{% block content %}
+    <div class="greyborder d-flex flex-column mx-auto col-xl-4 px-2 pb-2 text-center">
+        <div class="mt-1 text-center">
+            <h1 class="display-4 mark">
+                Create an account
+            </h1>
+        </div>
+        <form method="post">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="username">Username</label>
+                <input required name="username" type="text" class="form-control" id="username">
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input required name="password" type="password" class="form-control" id="password">
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input name="email" type="email" class="form-control" id="email">
+            </div>
+            <div class="form-group">
+                <label for="first_name">First name</label>
+                <input name="first_name" type="text" class="form-control" id="first_name">
+            </div>
+            <div class="form-group">
+                <label for="last_name">Last name</label>
+                <input name="last_name" type="text" class="form-control" id="last_name">
+            </div>
+            <button type="submit" class="btn btn-success my-2 white_text_button">Submit</button>
+        </form>
+        <a href="{% url 'frontpage' %}" class="btn btn-info white_text_button">Cancel</a>
+{% endblock content %}

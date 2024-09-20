@@ -1,0 +1,31 @@
+{% extends "master_template.html" %}
+
+{% block title %}
+    FitVids
+{% endblock title %}
+
+{% block content %}
+    <div class="greyborder d-flex flex-column mx-auto col-xl-10 px-1">
+        <div class="mt-1 text-center">
+            <h1 class="display-4 mark">Videos:</h1>
+        </div>
+        <div class="mt-3 d-flex flex-wrap">
+            {% for post in posts %}
+            <div class="greyborder mx-auto d-flex flex-column my-3 my-xl-1">
+                <div class="text-center">
+                    <h2>{{ post.title }}</h2>
+                </div>
+                <div class="mx-auto">
+                    <video controls="controls" src="{{ post.video.url }}" type="video/mp4" width="400px" height="200px"></video>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        {% if perms.FitVids.add_videomodel %}
+            <a href="{% url 'video_upload' %}" class="btn btn-success mt-3 mb-2 white_text_button">Upload video</a>
+        {% endif %}
+        <a href="{% url 'frontpage' %}" class="btn btn-info white_text_button my-2">Back to frontpage</a>
+    </div>
+    
+{% endblock content %}
+        

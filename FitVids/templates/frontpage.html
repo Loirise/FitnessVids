@@ -1,0 +1,32 @@
+{% extends "master_template.html" %}
+
+{% block title %}
+    FitVids
+{% endblock title %}
+
+{% block content %}
+    <div class="greyborder d-flex flex-column mx-auto col-xl-6 px-1">
+        <div class="mt-1 text-center">
+            <h1 class="display-4 mark">FitVids</h1>
+        </div>
+        {% if request.user.is_authenticated %}
+            <div class="my-2 text-center mark">
+                <span><strong>Welcome, {{ request.user.username }}</strong></span>
+            </div>
+            <div class="mb-2 d-flex">
+                <a href="{% url 'video_list' %}" class="white_text_button bg-success p-2 mx-auto my-1 text-center rounded">Videos</a>
+                <a href="{% url 'logout_page' %}" class="white_text_button bg-success p-2 mx-auto my-1 text-center rounded">Logout</a>
+            </div>
+        {% else %}
+            <div class="my-2 text-center mark">
+                <span><strong>Please log in or create an account to view our Fit videos</strong></span>
+            </div>
+            <div class="mb-2 d-flex">
+                <a href="{% url 'login_page' %}" class="white_text_button bg-success p-2 mx-auto my-1 text-center rounded">Login</a>
+                <a href="{% url 'register_page' %}" class="white_text_button bg-success p-2 mx-auto my-1 text-center rounded">Register</a>
+            </div>
+        {% endif %}
+    </div>
+    
+{% endblock content %}
+        
